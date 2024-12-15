@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="520" height="700" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f9d5e5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#eeac99;stop-opacity:1" />
+        </linearGradient>
+        <pattern id="mondrianPattern" x="0" y="0" width="520" height="700" patternUnits="userSpaceOnUse">
+            <rect width="520" height="700" fill="url(#bgGradient)"/>
+            <rect x="50" y="50" width="150" height="200" fill="#f9d5e5" opacity="0.3"/>
+            <rect x="320" y="450" width="180" height="200" fill="#eeac99" opacity="0.3"/>
+            <rect x="250" y="150" width="120" height="180" fill="#e6b8a2" opacity="0.3"/>
+        </pattern>
+        <!-- 烛光动画 -->
+        <filter id="blur">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+        </filter>
+        <!-- 风的动态路径 -->
+        <path id="windPath" d="M 50,350 C 150,300 200,400 300,350 S 400,300 500,350" />
+    </defs>
+    <rect width="100%" height="100%" fill="url(#mondrianPattern)"/>
+    
+    <!-- 抽象风的元素 -->
+    <g opacity="0.2">
+        <path d="M 50,200 C 150,150 200,250 300,200 S 400,150 500,200" 
+              fill="none" stroke="#6d6d6d" stroke-width="2">
+            <animate attributeName="d" 
+                     dur="5s" 
+                     repeatCount="indefinite"
+                     values="M 50,200 C 150,150 200,250 300,200 S 400,150 500,200;
+                             M 50,200 C 150,250 200,150 300,200 S 400,250 500,200;
+                             M 50,200 C 150,150 200,250 300,200 S 400,150 500,200"/>
+        </path>
+    </g>
+
+    <!-- 抽象烛光元素 -->
+    <g transform="translate(260,350)">
+        <!-- 烛芯 -->
+        <path d="M 0,-40 Q -5,-30 0,-20 Q 5,-30 0,-40" 
+              fill="#4a4a4a" opacity="0.6"/>
+        <!-- 火焰 -->
+        <path d="M 0,-60 Q -15,-40 0,-20 Q 15,-40 0,-60" 
+              fill="#ff9933" opacity="0.4" filter="url(#blur)">
+            <animate attributeName="d" 
+                     dur="3s" 
+                     repeatCount="indefinite"
+                     values="M 0,-60 Q -15,-40 0,-20 Q 15,-40 0,-60;
+                             M 0,-60 Q -10,-35 0,-20 Q 10,-35 0,-60;
+                             M 0,-60 Q -15,-40 0,-20 Q 15,-40 0,-60"/>
+        </path>
+        <!-- 光晕 -->
+        <circle cx="0" cy="-40" r="30" 
+                fill="#ffcc00" opacity="0.1" filter="url(#blur)">
+            <animate attributeName="r" 
+                     dur="2s" 
+                     repeatCount="indefinite"
+                     values="30;35;30"/>
+        </circle>
+    </g>
+
+    <text x="50%" y="10%" dominant-baseline="middle" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="32" fill="#4a4a4a">
+        风中烛
+    </text>
+    <line x1="10%" y1="15%" x2="90%" y2="15%" stroke="#6d6d6d" stroke-width="1"/>
+    <text x="50%" y="35%" dominant-baseline="middle" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="24" fill="#4a4a4a">
+        摇曳的烛光
+    </text>
+    <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="24" fill="#4a4a4a">
+        在风中执着地燃烧
+    </text>
+    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="24" fill="#4a4a4a">
+        微弱却坚定
+    </text>
+    <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="24" fill="#4a4a4a">
+        照亮黑暗的一隅
+    </text>
+    <text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="24" fill="#4a4a4a">
+        直到最后一刻
+    </text>
+
+    <!-- 光影效果 -->
+    <circle cx="260" cy="350" r="100" 
+            fill="radial-gradient(#ffcc00 0%, transparent 70%)" 
+            opacity="0.1">
+        <animate attributeName="opacity"
+                 dur="4s"
+                 repeatCount="indefinite"
+                 values="0.1;0.15;0.1"/>
+    </circle>
+</svg>

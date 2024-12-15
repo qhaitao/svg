@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="520" height="700" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f9d5e5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#eeac99;stop-opacity:1" />
+        </linearGradient>
+        <!-- 优化的背景图案 -->
+        <pattern id="mondrianPattern" x="0" y="0" width="520" height="700" patternUnits="userSpaceOnUse">
+            <rect width="520" height="700" fill="url(#bgGradient)"/>
+            <rect x="20" y="20" width="180" height="240" fill="#f9d5e5" opacity="0.2">
+                <animate attributeName="opacity" 
+                         dur="8s" 
+                         repeatCount="indefinite"
+                         values="0.2;0.3;0.2"/>
+            </rect>
+            <rect x="320" y="450" width="180" height="230" fill="#eeac99" opacity="0.2">
+                <animate attributeName="opacity" 
+                         dur="6s" 
+                         repeatCount="indefinite"
+                         values="0.2;0.3;0.2"/>
+            </rect>
+            <rect x="250" y="150" width="120" height="180" fill="#e6b8a2" opacity="0.2">
+                <animate attributeName="opacity" 
+                         dur="7s" 
+                         repeatCount="indefinite"
+                         values="0.2;0.3;0.2"/>
+            </rect>
+        </pattern>
+        <!-- 增强的模糊效果 -->
+        <filter id="blur">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+        </filter>
+        <filter id="softBlur">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+        </filter>
+        <!-- 风的动态路径 -->
+        <path id="windPath" d="M 50,350 C 150,300 200,400 300,350 S 400,300 500,350" />
+    </defs>
+    
+    <!-- 背景 -->
+    <rect width="100%" height="100%" fill="url(#mondrianPattern)"/>
+    
+    <!-- 装饰性光斑 -->
+    <g opacity="0.1">
+        <circle cx="50" cy="150" r="40" fill="#ffcc00" filter="url(#softBlur)">
+            <animate attributeName="r" 
+                     dur="10s" 
+                     repeatCount="indefinite"
+                     values="40;50;40"/>
+        </circle>
+        <circle cx="450" cy="550" r="60" fill="#ffcc00" filter="url(#softBlur)">
+            <animate attributeName="r" 
+                     dur="12s" 
+                     repeatCount="indefinite"
+                     values="60;70;60"/>
+        </circle>
+    </g>
+    
+    <!-- 多层风的效果 -->
+    <g opacity="0.15">
+        <path d="M 50,180 C 150,130 200,230 300,180 S 400,130 500,180" 
+              fill="none" stroke="#6d6d6d" stroke-width="1.5">
+            <animate attributeName="d" 
+                     dur="8s" 
+                     repeatCount="indefinite"
+                     values="M 50,180 C 150,130 200,230 300,180 S 400,130 500,180;
+                             M 50,180 C 150,230 200,130 300,180 S 400,230 500,180;
+                             M 50,180 C 150,130 200,230 300,180 S 400,130 500,180"/>
+        </path>
+        <path d="M 50,220 C 150,170 200,270 300,220 S 400,170 500,220" 
+              fill="none" stroke="#6d6d6d" stroke-width="1.5">
+            <animate attributeName="d" 
+                     dur="6s" 
+                     repeatCount="indefinite"
+                     values="M 50,220 C 150,170 200,270 300,220 S 400,170 500,220;
+                             M 50,220 C 150,270 200,170 300,220 S 400,270 500,220;
+                             M 50,220 C 150,170 200,270 300,220 S 400,170 500,220"/>
+        </path>
+    </g>
+
+    <!-- 增强的烛光元素 -->
+    <g transform="translate(260,350)">
+        <!-- 烛台 -->
+        <path d="M -15,0 L -10,-20 L 10,-20 L 15,0" 
+              fill="#4a4a4a" opacity="0.6"/>
+        <!-- 烛身 -->
+        <rect x="-8" y="-60" width="16" height="40" 
+              fill="#f0f0f0" opacity="0.8"/>
+        <!-- 烛芯 -->
+        <path d="M 0,-65 Q -2,-62 0,-60 Q 2,-62 0,-65" 
+              fill="#4a4a4a" opacity="0.9"/>
+        <!-- 动态火焰 -->
+        <g filter="url(#blur)">
+            <path d="M 0,-95 Q -12,-75 0,-60 Q 12,-75 0,-95" 
+                  fill="#ff9933" opacity="0.6">
+                <animate attributeName="d" 
+                         dur="3s" 
+                         repeatCount="indefinite"
+                         values="M 0,-95 Q -12,-75 0,-60 Q 12,-75 0,-95;
+                                 M 0,-90 Q -8,-70 0,-60 Q 8,-70 0,-90;
+                                 M 0,-95 Q -12,-75 0,-60 Q 12,-75 0,-95"/>
+            </path>
+            <path d="M 0,-85 Q -8,-70 0,-60 Q 8,-70 0,-85" 
+                  fill="#ffcc00" opacity="0.4">
+                <animate attributeName="d" 
+                         dur="2s" 
+                         repeatCount="indefinite"
+                         values="M 0,-85 Q -8,-70 0,-60 Q 8,-70 0,-85;
+                                 M 0,-80 Q -6,-68 0,-60 Q 6,-68 0,-80;
+                                 M 0,-85 Q -8,-70 0,-60 Q 8,-70 0,-85"/>
+            </path>
+        </g>
+        <!-- 光晕 -->
+        <circle cx="0" cy="-75" r="40" 
+                fill="#ffcc00" opacity="0.15" filter="url(#blur)">
+            <animate attributeName="r" 
+                     dur="4s" 
+                     repeatCount="indefinite"
+                     values="40;45;40"/>
+            <animate attributeName="opacity" 
+                     dur="4s" 
+                     repeatCount="indefinite"
+                     values="0.15;0.2;0.15"/>
+        </circle>
+    </g>
+
+    <!-- 标题与诗句（优化间距）-->
+    <text x="50%" y="15%" dominant-baseline="middle" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="32" fill="#4a4a4a">
+        散文诗：风中烛
+    </text>
+    <line x1="15%" y1="22%" x2="85%" y2="22%" stroke="#6d6d6d" stroke-width="1" opacity="0.6"/>
+    
+    <!-- 诗句（增加动态淡入效果）-->
+    <g>
+        <text x="50%" y="35%" dominant-baseline="middle" text-anchor="middle" 
+              font-family="KingHwa_OldSong" font-size="24" fill="#4a4a4a">
+            摇曳的烛光
+            <animate attributeName="opacity" 
+                     dur="3s" 
+                     values="0;1"
+                     fill="freeze"/>
+        </text>
+        <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" 
+              font-family="KingHwa_OldSong" font-size="24" fill="#4a4a4a">
+            在风中执着地燃烧
+            <animate attributeName="opacity" 
+                     dur="3s" 
+                     values="0;1"
+                     begin="0.5s"
+                     fill="freeze"/>
+        </text>
+        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" 
+              font-family="KingHwa_OldSong" font-size="24" fill="#4a4a4a">
+            微弱却坚定
+            <animate attributeName="opacity" 
+                     dur="3s" 
+                     values="0;1"
+                     begin="1s"
+                     fill="freeze"/>
+        </text>
+        <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" 
+              font-family="KingHwa_OldSong" font-size="24" fill="#4a4a4a">
+            照亮黑暗的一隅
+            <animate attributeName="opacity" 
+                     dur="3s" 
+                     values="0;1"
+                     begin="1.5s"
+                     fill="freeze"/>
+        </text>
+        <text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle" 
+              font-family="KingHwa_OldSong" font-size="24" fill="#4a4a4a">
+            直到最后一刻
+            <animate attributeName="opacity" 
+                     dur="3s" 
+                     values="0;1"
+                     begin="2s"
+                     fill="freeze"/>
+        </text>
+    </g>
+
+    <!-- 优化的光影效果 -->
+    <g>
+        <circle cx="260" cy="350" r="120" 
+                fill="radial-gradient(#ffcc00 0%, transparent 70%)" 
+                opacity="0.1"
+                filter="url(#softBlur)">
+            <animate attributeName="opacity"
+                     dur="4s"
+                     repeatCount="indefinite"
+                     values="0.1;0.15;0.1"/>
+        </circle>
+        <circle cx="260" cy="350" r="180" 
+                fill="radial-gradient(#ffcc00 0%, transparent 70%)" 
+                opacity="0.05"
+                filter="url(#softBlur)">
+            <animate attributeName="opacity"
+                     dur="6s"
+                     repeatCount="indefinite"
+                     values="0.05;0.08;0.05"/>
+        </circle>
+    </g>
+</svg>
