@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+    <!-- 定义渐变背景和特效 -->
+    <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1B4F72;stop-opacity:0.9" />
+            <stop offset="100%" style="stop-color:#2E86C1;stop-opacity:0.9" />
+        </linearGradient>
+        
+        <!-- 波浪效果 -->
+        <symbol id="wave" viewBox="0 0 100 20">
+            <path d="M0,10 Q25,0 50,10 Q75,20 100,10" 
+                  stroke="white" fill="none" stroke-width="0.5" opacity="0.3"/>
+        </symbol>
+        
+        <!-- 气泡效果 -->
+        <symbol id="bubble" viewBox="0 0 10 10">
+            <circle cx="5" cy="5" r="3" 
+                    stroke="white" fill="none" stroke-width="0.5" opacity="0.6"/>
+        </symbol>
+    </defs>
+    
+    <!-- 背景矩形 -->
+    <rect width="100%" height="100%" rx="20" ry="20" fill="url(#grad)"/>
+    
+    <!-- 海洋光效 -->
+    <circle cx="960" cy="540" r="400" fill="white" opacity="0.05">
+        <animate attributeName="opacity"
+                 values="0.05;0.08;0.05"
+                 dur="5s"
+                 repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- 动态波浪 -->
+    <g id="waves">
+        <!-- 第一层波浪 -->
+        <use href="#wave" x="0" y="300" width="1920" height="100">
+            <animate attributeName="y"
+                     values="300;310;300"
+                     dur="4s"
+                     repeatCount="indefinite"/>
+        </use>
+        <!-- 第二层波浪 -->
+        <use href="#wave" x="200" y="500" width="1920" height="100">
+            <animate attributeName="y"
+                     values="500;490;500"
+                     dur="3s"
+                     repeatCount="indefinite"/>
+        </use>
+        <!-- 第三层波浪 -->
+        <use href="#wave" x="-100" y="700" width="1920" height="100">
+            <animate attributeName="y"
+                     values="700;710;700"
+                     dur="5s"
+                     repeatCount="indefinite"/>
+        </use>
+    </g>
+    
+    <!-- 气泡动画 -->
+    <g id="bubbles">
+        <use href="#bubble" x="500" y="600" width="30" height="30">
+            <animate attributeName="y"
+                     values="600;400;600"
+                     dur="6s"
+                     repeatCount="indefinite"/>
+            <animate attributeName="opacity"
+                     values="0.6;0;0.6"
+                     dur="6s"
+                     repeatCount="indefinite"/>
+        </use>
+        <use href="#bubble" x="1200" y="700" width="20" height="20">
+            <animate attributeName="y"
+                     values="700;500;700"
+                     dur="8s"
+                     repeatCount="indefinite"/>
+            <animate attributeName="opacity"
+                     values="0.6;0;0.6"
+                     dur="8s"
+                     repeatCount="indefinite"/>
+        </use>
+    </g>
+    
+    <!-- 光线效果 -->
+    <g id="rays" opacity="0.2">
+        <line x1="960" y1="0" x2="960" y2="300" 
+              stroke="white" stroke-width="1">
+            <animate attributeName="opacity"
+                     values="0.2;0.4;0.2"
+                     dur="3s"
+                     repeatCount="indefinite"/>
+        </line>
+        <line x1="860" y1="50" x2="1060" y2="250" 
+              stroke="white" stroke-width="1">
+            <animate attributeName="opacity"
+                     values="0.2;0.4;0.2"
+                     dur="4s"
+                     repeatCount="indefinite"/>
+        </line>
+    </g>
+    
+    <!-- 标题 -->
+    <text x="960" y="200" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="120" fill="white">
+        海蓝
+    </text>
+    
+       
+    <!-- 分割线 -->
+    <line x1="660" y1="500" x2="1260" y2="500" 
+          stroke="white" stroke-width="2">
+        <animate attributeName="stroke-dasharray"
+                 values="0,600;600,0"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+    </line>
+    
+    <!-- 营销语句 -->
+    <text x="960" y="650" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="80" fill="white">
+        <tspan x="960" dy="0">深邃如海</tspan>
+        <tspan x="960" dy="100">永恒似蓝</tspan>
+    </text>
+    
+    <!-- 情感词云 -->
+    <text x="960" y="900" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="50" fill="white" opacity="0.7">
+        深邃 宁静 包容 永恒 纯净
+    </text>
+</svg>

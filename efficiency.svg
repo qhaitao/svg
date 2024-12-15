@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+    <!-- 定义渐变和特效 -->
+    <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2E8B57;stop-opacity:0.9" />
+            <stop offset="100%" style="stop-color:#20B2AA;stop-opacity:0.9" />
+        </linearGradient>
+        
+        <!-- 上升效果 -->
+        <linearGradient id="arrow-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" style="stop-color:white;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:white;stop-opacity:0.2" />
+        </linearGradient>
+    </defs>
+    
+    <!-- 背景 -->
+    <rect width="100%" height="100%" fill="url(#grad)"/>
+    
+    <!-- 效率图形：上升箭头和环形进度 -->
+    <g transform="translate(860,320)">
+        <!-- 环形进度 -->
+        <circle cx="100" cy="100" r="80" 
+                stroke="white" stroke-width="4" 
+                fill="none" opacity="0.3"/>
+        <circle cx="100" cy="100" r="80" 
+                stroke="white" stroke-width="4" 
+                fill="none" opacity="0.8">
+            <animate attributeName="stroke-dasharray"
+                     values="0 502;502 0"
+                     dur="3s"
+                     repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- 上升箭头 -->
+        <path d="M100,180 L100,20 L70,50 M100,20 L130,50" 
+              stroke="url(#arrow-grad)" 
+              stroke-width="8" 
+              fill="none">
+            <animate attributeName="stroke-opacity"
+                     values="0.4;0.8;0.4"
+                     dur="2s"
+                     repeatCount="indefinite"/>
+        </path>
+    </g>
+    
+    <!-- 装饰性数据点 -->
+    <g fill="white" opacity="0.6">
+        <circle cx="300" cy="300" r="3">
+            <animate attributeName="opacity"
+                     values="0.2;0.6;0.2"
+                     dur="2s"
+                     repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1620" cy="300" r="3">
+            <animate attributeName="opacity"
+                     values="0.6;0.2;0.6"
+                     dur="2s"
+                     repeatCount="indefinite"/>
+        </circle>
+        <circle cx="400" cy="700" r="3">
+            <animate attributeName="opacity"
+                     values="0.4;0.8;0.4"
+                     dur="3s"
+                     repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1520" cy="700" r="3">
+            <animate attributeName="opacity"
+                     values="0.8;0.4;0.8"
+                     dur="3s"
+                     repeatCount="indefinite"/>
+        </circle>
+    </g>
+    
+    <!-- 连接线 -->
+    <g stroke="white" stroke-width="1" opacity="0.3">
+        <line x1="300" y1="300" x2="400" y2="300">
+            <animate attributeName="x2"
+                     values="400;450;400"
+                     dur="2s"
+                     repeatCount="indefinite"/>
+        </line>
+        <line x1="1520" y1="300" x2="1620" y2="300">
+            <animate attributeName="x2"
+                     values="1620;1670;1620"
+                     dur="2.5s"
+                     repeatCount="indefinite"/>
+        </line>
+        <line x1="300" y1="700" x2="400" y2="700">
+            <animate attributeName="x2"
+                     values="400;450;400"
+                     dur="3s"
+                     repeatCount="indefinite"/>
+        </line>
+        <line x1="1520" y1="700" x2="1620" y2="700">
+            <animate attributeName="x2"
+                     values="1620;1670;1620"
+                     dur="2s"
+                     repeatCount="indefinite"/>
+        </line>
+    </g>
+    
+    <!-- 标题 -->
+    <text x="960" y="280" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="120" fill="white">
+        降本增效
+    </text>
+    
+    <!-- 分割线 -->
+    <line x1="660" y1="680" x2="1260" y2="680" 
+          stroke="white" stroke-width="2">
+        <animate attributeName="stroke-dasharray"
+                 values="0,600;600,0"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+    </line>
+    
+    <!-- 营销语句 -->
+    <text x="960" y="620" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="80" fill="white">
+        <tspan x="960" dy="0">精益求精</tspan>
+        <tspan x="960" dy="100">价值倍增</tspan>
+    </text>
+    
+    <!-- 情感词云 -->
+    <text x="960" y="900" text-anchor="middle" 
+          font-family="KingHwa_OldSong" font-size="50" fill="white" opacity="0.7">
+        效率 优化 价值 创新 增长
+    </text>
+</svg>

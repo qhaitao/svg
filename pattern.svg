@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="520" height="700" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#f8f9fa"/>
+            <stop offset="100%" stop-color="#e9ecef"/>
+        </linearGradient>
+        <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#dee2e6" stroke-width="1"/>
+        </pattern>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- 背景 -->
+    <rect width="100%" height="100%" fill="url(#bg)"/>
+    
+    <!-- 网格背景 -->
+    <rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.3"/>
+
+    <!-- 中心图形：六边形模式 -->
+    <g transform="translate(260,220)">
+        <!-- 旋转的六边形组 -->
+        <g>
+            <!-- 外层六边形 -->
+            <path d="M0,-50 L43.3,-25 L43.3,25 L0,50 L-43.3,25 L-43.3,-25 Z" 
+                  fill="none" 
+                  stroke="#20c997" 
+                  stroke-width="2"
+                  opacity="0.6">
+                <animateTransform attributeName="transform"
+                                type="rotate"
+                                from="0 0 0"
+                                to="360 0 0"
+                                dur="20s"
+                                repeatCount="indefinite"/>
+            </path>
+            
+            <!-- 中层六边形 -->
+            <path d="M0,-35 L30.31,-17.5 L30.31,17.5 L0,35 L-30.31,17.5 L-30.31,-17.5 Z" 
+                  fill="none" 
+                  stroke="#12b886" 
+                  stroke-width="2"
+                  opacity="0.7">
+                <animateTransform attributeName="transform"
+                                type="rotate"
+                                from="360 0 0"
+                                to="0 0 0"
+                                dur="15s"
+                                repeatCount="indefinite"/>
+            </path>
+            
+            <!-- 内层六边形 -->
+            <path d="M0,-20 L17.32,-10 L17.32,10 L0,20 L-17.32,10 L-17.32,-10 Z" 
+                  fill="none" 
+                  stroke="#087f5b" 
+                  stroke-width="2"
+                  opacity="0.8">
+                <animateTransform attributeName="transform"
+                                type="rotate"
+                                from="0 0 0"
+                                to="360 0 0"
+                                dur="10s"
+                                repeatCount="indefinite"/>
+            </path>
+        </g>
+    </g>
+
+    <!-- 连接线和关键词 -->
+    <g transform="translate(260,350)">
+        <!-- 连接线 -->
+        <g stroke="#adb5bd" stroke-width="1" opacity="0.4">
+            <path d="M-120,-20 L120,-20" stroke-dasharray="5,5">
+                <animate attributeName="stroke-dashoffset"
+                         from="1000"
+                         to="0"
+                         dur="30s"
+                         repeatCount="indefinite"/>
+            </path>
+            <path d="M-120,0 L120,0" stroke-dasharray="5,5">
+                <animate attributeName="stroke-dashoffset"
+                         from="1000"
+                         to="0"
+                         dur="25s"
+                         repeatCount="indefinite"/>
+            </path>
+            <path d="M-120,20 L120,20" stroke-dasharray="5,5">
+                <animate attributeName="stroke-dashoffset"
+                         from="1000"
+                         to="0"
+                         dur="35s"
+                         repeatCount="indefinite"/>
+            </path>
+        </g>
+
+        <!-- 关键词 -->
+        <g fill="#495057" font-family="KingHwa_OldSong">
+            <text x="-140" y="-20" text-anchor="end" opacity="0">规律
+                <animate attributeName="opacity"
+                         dur="1s"
+                         to="1"
+                         fill="freeze"/>
+            </text>
+            <text x="140" y="-20" opacity="0">变化
+                <animate attributeName="opacity"
+                         dur="1s"
+                         to="1"
+                         fill="freeze"
+                         begin="0.3s"/>
+            </text>
+            <text x="-140" y="0" text-anchor="end" opacity="0">抽象
+                <animate attributeName="opacity"
+                         dur="1s"
+                         to="1"
+                         fill="freeze"
+                         begin="0.6s"/>
+            </text>
+            <text x="140" y="0" opacity="0">具象
+                <animate attributeName="opacity"
+                         dur="1s"
+                         to="1"
+                         fill="freeze"
+                         begin="0.9s"/>
+            </text>
+            <text x="-140" y="20" text-anchor="end" opacity="0">重复
+                <animate attributeName="opacity"
+                         dur="1s"
+                         to="1"
+                         fill="freeze"
+                         begin="1.2s"/>
+            </text>
+            <text x="140" y="20" opacity="0">创新
+                <animate attributeName="opacity"
+                         dur="1s"
+                         to="1"
+                         fill="freeze"
+                         begin="1.5s"/>
+            </text>
+        </g>
+    </g>
+
+    <!-- 文字内容 -->
+    <g font-family="KingHwa_OldSong" text-anchor="middle">
+        <!-- 标题 -->
+        <text x="50%" y="15%" font-size="32" fill="#212529" filter="url(#glow)">模式之道</text>
+        <line x1="15%" y1="22%" x2="85%" y2="22%" stroke="#adb5bd" stroke-width="1"/>
+        
+        <!-- 诗句 -->
+        <g font-size="24" fill="#495057">
+            <text x="50%" y="55%" opacity="0">规律之中寻变化
+                <animate attributeName="opacity"
+                         dur="2s"
+                         to="1"
+                         fill="freeze"/>
+            </text>
+            <text x="50%" y="65%" opacity="0">抽象具象两相融
+                <animate attributeName="opacity"
+                         dur="2s"
+                         to="1"
+                         fill="freeze"
+                         begin="0.5s"/>
+            </text>
+            <text x="50%" y="75%" opacity="0">循环往复皆有道
+                <animate attributeName="opacity"
+                         dur="2s"
+                         to="1"
+                         fill="freeze"
+                         begin="1s"/>
+            </text>
+            <text x="50%" y="85%" opacity="0">创新模式破重围
+                <animate attributeName="opacity"
+                         dur="2s"
+                         to="1"
+                         fill="freeze"
+                         begin="1.5s"/>
+            </text>
+        </g>
+    </g>
+
+    <!-- 装饰性元素 -->
+    <g opacity="0.1">
+        <rect x="80" y="120" width="40" height="40" fill="#20c997">
+            <animate attributeName="opacity"
+                     values="0.1;0.2;0.1"
+                     dur="4s"
+                     repeatCount="indefinite"/>
+        </rect>
+        <rect x="440" y="580" width="40" height="40" fill="#12b886">
+            <animate attributeName="opacity"
+                     values="0.1;0.2;0.1"
+                     dur="3s"
+                     repeatCount="indefinite"/>
+        </rect>
+    </g>
+</svg>
