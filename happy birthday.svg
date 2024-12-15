@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+    <!-- 定义渐变背景 -->
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFF0F5"/>
+            <stop offset="50%" style="stop-color:#F0F8FF"/>
+            <stop offset="100%" style="stop-color:#E6E6FA"/>
+        </linearGradient>
+        
+        <!-- 发光滤镜效果 -->
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <!-- 动画定义 -->
+        <style type="text/css">
+            @font-face {
+                font-family: 'KingHwa_OldSong';
+                src: url('KingHwa_OldSong.ttf');
+            }
+            
+            .star-animation {
+                animation: scale 2s infinite;
+            }
+            
+            .light-animation {
+                animation: fade 1.5s infinite;
+            }
+            
+            @keyframes scale {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.2); }
+            }
+            
+            @keyframes fade {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.3; }
+            }
+        </style>
+    </defs>
+
+    <!-- 背景 -->
+    <rect x="0" y="0" width="800" height="600" rx="20" ry="20" fill="url(#bgGradient)"/>
+
+    <!-- 主标题 -->
+    <text x="400" y="150" font-family="KingHwa_OldSong" font-size="48" fill="#ff0000" text-anchor="middle" filter="url(#glow)">
+        生日快乐
+    </text>
+
+    <!-- 姓名 -->
+    <text x="400" y="220" font-family="KingHwa_OldSong" font-size="36" fill="#ff0000" text-anchor="middle" text-decoration="underline">
+        秦海涛
+    </text>
+
+    <!-- 祝福语 -->
+    <text x="400" y="280" font-family="KingHwa_OldSong" font-size="36" fill="#4B0082" text-anchor="middle">
+        愿你永远快乐，永远年轻
+    </text>
+    <text x="400" y="350" font-family="KingHwa_OldSong" font-size="36" fill="#4B0082" text-anchor="middle">
+        岁月静好，未来可期
+    </text>
+
+    <!-- Emoji装饰 -->
+    <!-- 第一行 -->
+    <text x="200" y="220" font-size="36">🎈</text>
+    <text x="600" y="220" font-size="36">🎉</text>
+    
+    <!-- 第二行 -->
+    <text x="140" y="280" font-size="36">🎊</text>
+    <text x="620" y="280" font-size="36">🌈</text>
+    
+    <!-- 第三行 -->
+    <text x="160" y="350" font-size="36">🎁</text>
+    <text x="640" y="350" font-size="36">💝</text>
+
+    <!-- 装饰星星 -->
+    <g class="star-animation">
+        <text x="100" y="150" font-size="24">⭐</text>
+        <text x="700" y="150" font-size="24">⭐</text>
+    </g>
+
+    <!-- 彩灯效果 -->
+    <g class="light-animation">
+        <text x="50" y="100" font-size="24">💫</text>
+        <text x="750" y="100" font-size="24">💫</text>
+    </g>
+</svg>
