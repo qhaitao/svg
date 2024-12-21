@@ -1,0 +1,109 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB"/>
+      <stop offset="100%" style="stop-color:#F0F8FF"/>
+    </linearGradient>
+    
+    <!-- 纸扎纹理 -->
+    <pattern id="paper-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0,10 L20,10 M10,0 L10,20" 
+            stroke="#CD853F" 
+            stroke-width="0.5" 
+            opacity="0.2"/>
+    </pattern>
+    
+    <!-- 风动效果 -->
+    <filter id="wind" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2">
+        <animate attributeName="baseFrequency"
+                 values="0.01;0.015;0.01"
+                 dur="4s"
+                 repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="3"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#sky-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="100" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#8B4513" 
+        text-anchor="middle"
+        letter-spacing="4">
+    黄河风情
+  </text>
+  
+  <!-- 主场景 -->
+  <g transform="translate(150,200)">
+    <!-- 窑洞 -->
+    <g transform="translate(-60,-20)">
+      <!-- 洞体 -->
+      <path d="M-40,0 A40,40 0 0,1 40,0" 
+            fill="#CD853F"/>
+      <rect x="-40" y="0" width="80" height="60" 
+            fill="#CD853F"/>
+      <!-- 门 -->
+      <rect x="-15" y="10" width="30" height="50" 
+            fill="#8B4513"/>
+    </g>
+    
+    <!-- 风筝 -->
+    <g transform="translate(40,-40)" filter="url(#wind)">
+      <path d="M0,0 L20,-20 L0,-40 L-20,-20 Z" 
+            fill="#FF6347" 
+            opacity="0.8">
+        <animate attributeName="transform"
+                 values="rotate(0);rotate(10);rotate(0)"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+      </path>
+      <!-- 风筝线 -->
+      <path d="M0,0 L0,40" 
+            stroke="#8B4513" 
+            stroke-width="0.5" 
+            stroke-dasharray="2,2"/>
+    </g>
+    
+    <!-- 红灯笼 -->
+    <g transform="translate(-80,-50)">
+      <circle cx="0" cy="0" r="10" 
+              fill="#FF4500" 
+              opacity="0.8"/>
+      <path d="M0,-10 L0,-20" 
+            stroke="#8B4513" 
+            stroke-width="1"/>
+      <path d="M-2,10 L2,10" 
+            stroke="#8B4513" 
+            stroke-width="1"/>
+    </g>
+    
+    <!-- 剪纸装饰 -->
+    <g transform="translate(80,-30)" filter="url(#wind)">
+      <rect x="-10" y="-15" width="20" height="30" 
+            fill="#FF0000" 
+            opacity="0.6"/>
+      <path d="M-8,-13 L8,-13 M-8,-8 L8,-8 M-8,-3 L8,-3" 
+            stroke="#FFFFFF" 
+            stroke-width="1"/>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <g font-family="KingHwa_OldSong, serif" fill="#8B4513" text-anchor="middle">
+    <text x="150" y="320" 
+          font-size="24" 
+          letter-spacing="4">
+      民俗风情
+    </text>
+    <text x="150" y="355" 
+          font-size="24" 
+          letter-spacing="4">
+      黄河文化
+    </text>
+  </g>
+</svg> 

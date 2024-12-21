@@ -1,0 +1,105 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB"/>
+      <stop offset="100%" style="stop-color:#F0F8FF"/>
+    </linearGradient>
+    
+    <!-- 瀑布水流效果 -->
+    <filter id="waterfall" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="5">
+        <animate attributeName="baseFrequency"
+                 values="0.03;0.04;0.03"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="15"/>
+    </filter>
+    
+    <!-- 岩石纹理 -->
+    <pattern id="rock-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0,10 L20,10 M10,0 L10,20" 
+            stroke="#8B4513" 
+            stroke-width="0.5" 
+            opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#sky-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="100" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#8B4513" 
+        text-anchor="middle"
+        letter-spacing="4">
+    壶口瀑布
+  </text>
+  
+  <!-- 主场景 -->
+  <g transform="translate(150,200)">
+    <!-- 峭壁 -->
+    <path d="M-150,100 L-150,-50 L-50,-50 L-50,100 Z" 
+          fill="url(#rock-pattern)"/>
+    <path d="M50,100 L50,-50 L150,-50 L150,100 Z" 
+          fill="url(#rock-pattern)"/>
+    
+    <!-- 瀑布主体 -->
+    <g filter="url(#waterfall)">
+      <path d="M-50,-50 L50,-50 L50,100 L-50,100 Z" 
+            fill="#E6B422" 
+            opacity="0.8"/>
+    </g>
+    
+    <!-- 水花飞溅 -->
+    <g fill="#FFFFFF" opacity="0.6">
+      <circle cx="-30" cy="80" r="2">
+        <animate attributeName="cy"
+                 values="80;60;80"
+                 dur="1s"
+                 repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="90" r="3">
+        <animate attributeName="cy"
+                 values="90;70;90"
+                 dur="1.2s"
+                 repeatCount="indefinite"/>
+      </circle>
+      <circle cx="30" cy="85" r="2">
+        <animate attributeName="cy"
+                 values="85;65;85"
+                 dur="0.8s"
+                 repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- 水雾 -->
+    <g opacity="0.3">
+      <path d="M-60,60 Q0,40 60,60" 
+            stroke="#FFFFFF" 
+            stroke-width="2" 
+            fill="none">
+        <animate attributeName="d"
+                 values="M-60,60 Q0,40 60,60;M-60,60 Q0,80 60,60;M-60,60 Q0,40 60,60"
+                 dur="4s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <g font-family="KingHwa_OldSong, serif" fill="#8B4513" text-anchor="middle">
+    <text x="150" y="320" 
+          font-size="24" 
+          letter-spacing="4">
+      飞流直下
+    </text>
+    <text x="150" y="355" 
+          font-size="24" 
+          letter-spacing="4">
+      气势磅礴
+    </text>
+  </g>
+</svg> 

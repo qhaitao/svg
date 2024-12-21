@@ -1,0 +1,119 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变和滤镜 -->
+  <defs>
+    <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A8D8EA"/>
+      <stop offset="100%" style="stop-color:#F5F2ED"/>
+    </linearGradient>
+    
+    <!-- 水流动效果 -->
+    <filter id="water-turbulence" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" result="noise">
+        <animate attributeName="baseFrequency"
+                 values="0.01;0.015;0.01"
+                 dur="10s"
+                 repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5"/>
+    </filter>
+    
+    <!-- 地形纹理 -->
+    <pattern id="terrain-pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M0,0 L10,10 M10,0 L0,10" 
+            stroke="#8B6B48" 
+            stroke-width="0.5" 
+            opacity="0.1"/>
+    </pattern>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#sky-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="100" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#8B6B48" 
+        text-anchor="middle"
+        letter-spacing="4">
+    黄河
+  </text>
+  
+  <!-- 主场景 -->
+  <g transform="translate(150,200)">
+    <!-- 远处山峦 -->
+    <path d="M-150,80 Q-75,20 0,60 Q75,100 150,40" 
+          fill="#8B6B48" 
+          opacity="0.3"/>
+    
+    <!-- 地形层次 -->
+    <g>
+      <!-- 第一层 -->
+      <path d="M-150,100 Q-100,60 -50,80 Q0,100 50,80 Q100,60 150,100" 
+            fill="url(#terrain-pattern)" 
+            opacity="0.6"/>
+      <!-- 第二层 -->
+      <path d="M-150,120 Q-75,80 0,100 Q75,120 150,100" 
+            fill="url(#terrain-pattern)" 
+            opacity="0.8"/>
+    </g>
+    
+    <!-- 河道 -->
+    <g filter="url(#water-turbulence)">
+      <!-- 主河道 -->
+      <path d="M-120,-20 Q-60,0 0,-20 Q60,-40 120,-20" 
+            fill="#E6B422" 
+            opacity="0.8">
+        <animate attributeName="d"
+                 values="M-120,-20 Q-60,0 0,-20 Q60,-40 120,-20;
+                        M-120,-20 Q-60,-40 0,-20 Q60,0 120,-20;
+                        M-120,-20 Q-60,0 0,-20 Q60,-40 120,-20"
+                 dur="8s"
+                 repeatCount="indefinite"/>
+      </path>
+      
+      <!-- 水流纹路 -->
+      <g stroke="#E6B422" 
+         fill="none" 
+         opacity="0.4">
+        <path d="M-100,-10 Q-50,-30 0,-10 Q50,10 100,-10">
+          <animate attributeName="d"
+                   values="M-100,-10 Q-50,-30 0,-10 Q50,10 100,-10;
+                          M-100,-10 Q-50,10 0,-10 Q50,-30 100,-10;
+                          M-100,-10 Q-50,-30 0,-10 Q50,10 100,-10"
+                   dur="6s"
+                   repeatCount="indefinite"/>
+        </path>
+      </g>
+    </g>
+    
+    <!-- 云雾效果 -->
+    <g opacity="0.3">
+      <path d="M-120,0 Q-60,-20 0,0 Q60,20 120,0" 
+            stroke="#F5F2ED" 
+            stroke-width="2" 
+            fill="none">
+        <animate attributeName="d"
+                 values="M-120,0 Q-60,-20 0,0 Q60,20 120,0;
+                        M-120,0 Q-60,20 0,0 Q60,-20 120,0;
+                        M-120,0 Q-60,-20 0,0 Q60,20 120,0"
+                 dur="10s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <g font-family="KingHwa_OldSong, serif" fill="#8B6B48" text-anchor="middle">
+    <text x="150" y="320" 
+          font-size="24" 
+          letter-spacing="4">
+      九曲黄河
+    </text>
+    <text x="150" y="355" 
+          font-size="24" 
+          letter-spacing="4">
+      万里奔流
+    </text>
+  </g>
+</svg> 

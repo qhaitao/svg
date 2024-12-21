@@ -1,0 +1,110 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变和纹理 -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F7F8"/>
+      <stop offset="100%" style="stop-color:#E9ECF0"/>
+    </linearGradient>
+    
+    <!-- 釉面渐变 -->
+    <linearGradient id="glaze-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#88ABBA"/>
+      <stop offset="50%" style="stop-color:#9BBAC7"/>
+      <stop offset="100%" style="stop-color:#88ABBA"/>
+    </linearGradient>
+    
+    <!-- 开片纹理 -->
+    <pattern id="crackle-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M5,0 L15,20 M20,5 L0,15" 
+            stroke="#E9ECF0" 
+            stroke-width="0.5" 
+            opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#bg-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="100" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#88ABBA" 
+        text-anchor="middle"
+        letter-spacing="4">
+    汝瓷
+  </text>
+  
+  <!-- 主场景 -->
+  <g transform="translate(150,200)">
+    <!-- 瓷器主体 -->
+    <g>
+      <!-- 器身 -->
+      <path d="M-40,80 L-50,70 Q-60,40 -40,0 Q-20,-40 0,-50 
+               Q20,-40 40,0 Q60,40 50,70 L40,80" 
+            fill="url(#glaze-gradient)"/>
+      
+      <!-- 开片纹理覆盖 -->
+      <path d="M-40,80 L-50,70 Q-60,40 -40,0 Q-20,-40 0,-50 
+               Q20,-40 40,0 Q60,40 50,70 L40,80" 
+            fill="url(#crackle-pattern)"/>
+      
+      <!-- 器口 -->
+      <ellipse cx="0" cy="-50" rx="20" ry="5" 
+               fill="#9BBAC7"/>
+      
+      <!-- 器底 -->
+      <ellipse cx="0" cy="80" rx="40" ry="8" 
+               fill="#88ABBA"/>
+    </g>
+    
+    <!-- 釉面光泽效果 -->
+    <path d="M-30,-30 Q-10,-40 10,-30" 
+          stroke="#F7FBFC" 
+          stroke-width="2" 
+          fill="none" 
+          opacity="0.4">
+      <animate attributeName="opacity"
+               values="0.4;0.6;0.4"
+               dur="3s"
+               repeatCount="indefinite"/>
+    </path>
+    
+    <!-- 装饰纹样 -->
+    <g stroke="#E9ECF0" 
+       stroke-width="1" 
+       opacity="0.5">
+      <path d="M-35,20 L35,20"/>
+      <path d="M-30,30 L30,30"/>
+      <path d="M-25,40 L25,40"/>
+    </g>
+    
+    <!-- 器身装饰 -->
+    <g fill="none" 
+       stroke="#9BBAC7" 
+       stroke-width="1.5">
+      <path d="M-20,-20 Q0,-25 20,-20">
+        <animate attributeName="d"
+                 values="M-20,-20 Q0,-25 20,-20;
+                        M-20,-20 Q0,-23 20,-20;
+                        M-20,-20 Q0,-25 20,-20"
+                 dur="4s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <g font-family="KingHwa_OldSong, serif" fill="#88ABBA" text-anchor="middle">
+    <text x="150" y="320" 
+          font-size="24" 
+          letter-spacing="4">
+      天青釉润
+    </text>
+    <text x="150" y="355" 
+          font-size="24" 
+          letter-spacing="4">
+      宋韵天成
+    </text>
+  </g>
+</svg> 

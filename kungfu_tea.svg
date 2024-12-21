@@ -7,19 +7,21 @@
       <stop offset="100%" style="stop-color:#DCD0C0"/>
     </linearGradient>
     
-    <!-- 茶水流动动画路径 -->
-    <path id="teaFlow" d="M150,160 C160,180 140,200 150,220" />
-    
     <!-- 水波纹效果 -->
     <filter id="ripple" x="-20%" y="-20%" width="140%" height="140%">
-      <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="3" result="turbulence">
-        <animate attributeName="baseFrequency" 
-                 values="0.01;0.02;0.01" 
-                 dur="3s" 
+      <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="2" result="turbulence">
+        <animate attributeName="baseFrequency"
+                 values="0.01;0.015;0.01"
+                 dur="4s"
                  repeatCount="indefinite"/>
       </feTurbulence>
-      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5"/>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="3"/>
     </filter>
+    
+    <!-- 茶水纹理 -->
+    <pattern id="tea-pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="1" fill="#C37E00" opacity="0.3"/>
+    </pattern>
   </defs>
   
   <!-- 背景 -->
@@ -35,56 +37,84 @@
     功夫茶
   </text>
   
-  <!-- 茶盘（简化的几何形状） -->
-  <ellipse cx="150" cy="280" rx="100" ry="30" 
-           fill="#306850" opacity="0.2"/>
-  
-  <!-- 茶壶（现代几何风格） -->
-  <g transform="translate(150,180)" fill="#306850">
-    <!-- 壶身 -->
-    <path d="M-30,-20 Q-40,0 -30,20 L30,20 Q40,0 30,-20 Z" />
-    <!-- 壶嘴 -->
-    <path d="M30,0 L50,0 Q60,0 65,10" 
-          stroke="#306850" 
-          stroke-width="3" 
-          fill="none"/>
-    <!-- 壶把 -->
-    <path d="M-30,0 L-50,0 Q-60,0 -65,-10" 
-          stroke="#306850" 
-          stroke-width="3" 
-          fill="none"/>
-  </g>
-  
-  <!-- 茶杯（简约造型） -->
-  <g transform="translate(150,240)">
-    <path d="M-15,-15 L-20,15 L20,15 L15,-15 Z" 
-          fill="#C37E00" 
-          opacity="0.9"/>
-    <!-- 茶水 -->
-    <path d="M-15,0 L15,0" 
-          stroke="#E3170D" 
-          stroke-width="2" 
-          opacity="0.6"
-          filter="url(#ripple)">
-      <animate attributeName="d" 
-               values="M-15,0 L15,0;M-15,-2 L15,2;M-15,0 L15,0" 
-               dur="2s" 
-               repeatCount="indefinite"/>
-    </path>
-  </g>
-  
-  <!-- 蒸汽效果 -->
-  <g transform="translate(150,160)">
-    <path d="M-5,0 Q0,-10 5,0" 
-          stroke="#306850" 
-          stroke-width="1" 
-          fill="none" 
-          opacity="0.3">
-      <animate attributeName="d" 
-               values="M-5,0 Q0,-10 5,0;M-5,0 Q0,-15 5,0;M-5,0 Q0,-10 5,0" 
-               dur="3s" 
-               repeatCount="indefinite"/>
-    </path>
+  <!-- 茶具场景 -->
+  <g transform="translate(150,200)">
+    <!-- 茶盘 -->
+    <ellipse cx="0" cy="60" rx="120" ry="20" 
+             fill="#306850" 
+             opacity="0.1"/>
+    
+    <!-- 茶壶 -->
+    <g transform="translate(-40,0)">
+      <!-- 壶身 -->
+      <path d="M-15,-10 Q-20,10 -15,30 L15,30 Q20,10 15,-10 Q0,-15 -15,-10" 
+            fill="#306850"/>
+      <!-- 壶嘴 -->
+      <path d="M15,10 Q40,15 45,5" 
+            stroke="#306850" 
+            stroke-width="3" 
+            fill="none"/>
+      <!-- 壶把 -->
+      <path d="M-15,10 Q-35,15 -40,5" 
+            stroke="#306850" 
+            stroke-width="3" 
+            fill="none"/>
+      <!-- 壶盖 -->
+      <path d="M-10,-12 L10,-12 M-12,-15 L12,-15" 
+            stroke="#306850" 
+            stroke-width="2"/>
+    </g>
+    
+    <!-- 茶杯组 -->
+    <g transform="translate(40,10)">
+      <!-- 第一个杯子 -->
+      <g>
+        <path d="M-12,-5 L-15,15 L15,15 L12,-5 Z" 
+              fill="#C37E00" 
+              opacity="0.9"/>
+        <!-- 茶水 -->
+        <path d="M-10,5 L10,5" 
+              stroke="#E3170D" 
+              stroke-width="1.5" 
+              opacity="0.6"
+              filter="url(#ripple)"/>
+      </g>
+      <!-- 第二个杯子（半透明） -->
+      <g transform="translate(30,0)" opacity="0.3">
+        <path d="M-12,-5 L-15,15 L15,15 L12,-5 Z" 
+              fill="#C37E00"/>
+      </g>
+    </g>
+    
+    <!-- 蒸汽效果 -->
+    <g>
+      <!-- 壶的蒸汽 -->
+      <g transform="translate(-40,-15)">
+        <path d="M0,0 Q-5,-10 0,-20" 
+              stroke="#306850" 
+              stroke-width="1" 
+              fill="none" 
+              opacity="0.3">
+          <animate attributeName="d"
+                   values="M0,0 Q-5,-10 0,-20;M0,0 Q5,-10 0,-20;M0,0 Q-5,-10 0,-20"
+                   dur="3s"
+                   repeatCount="indefinite"/>
+        </path>
+      </g>
+      <!-- 杯子的蒸汽 -->
+      <g transform="translate(40,0)">
+        <path d="M0,0 Q-3,-8 0,-15" 
+              stroke="#306850" 
+              stroke-width="1" 
+              fill="none" 
+              opacity="0.3">
+          <animate attributeName="d"
+                   values="M0,0 Q-3,-8 0,-15;M0,0 Q3,-8 0,-15;M0,0 Q-3,-8 0,-15"
+                   dur="2s"
+                   repeatCount="indefinite"/>
+        </path>
+      </g>
+    </g>
   </g>
   
   <!-- 文字 -->
