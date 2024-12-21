@@ -1,0 +1,124 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#191970"/>
+      <stop offset="50%" style="stop-color:#483D8B"/>
+      <stop offset="100%" style="stop-color:#4B0082"/>
+    </linearGradient>
+    
+    <!-- 月亮光晕 -->
+    <radialGradient id="moon-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFE4B5;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#FFE4B5;stop-opacity:0"/>
+    </radialGradient>
+    
+    <!-- 云雾效果 -->
+    <filter id="cloud-flow" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2">
+        <animate attributeName="baseFrequency"
+                 values="0.01;0.015;0.01"
+                 dur="8s"
+                 repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#sky-gradient)"/>
+  
+  <!-- 星星 -->
+  <g fill="#FFFFFF">
+    <circle cx="50" cy="80" r="1">
+      <animate attributeName="opacity"
+               values="0.2;1;0.2"
+               dur="3s"
+               repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="60" r="1">
+      <animate attributeName="opacity"
+               values="0.2;1;0.2"
+               dur="4s"
+               repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="40" r="1">
+      <animate attributeName="opacity"
+               values="0.2;1;0.2"
+               dur="5s"
+               repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- 主题词 -->
+  <text x="150" y="100" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#FFE4B5" 
+        text-anchor="middle"
+        letter-spacing="4">
+    中秋快乐
+  </text>
+  
+  <!-- 主场景 -->
+  <g transform="translate(150,200)">
+    <!-- 月亮 -->
+    <g>
+      <circle cx="0" cy="0" r="50" 
+              fill="url(#moon-glow)"/>
+      <circle cx="0" cy="0" r="40" 
+              fill="#FFE4B5"/>
+      <!-- 月兔 -->
+      <g transform="translate(-10,-5)" fill="#4A4A4A">
+        <!-- 身体 -->
+        <ellipse cx="0" cy="0" rx="15" ry="12"/>
+        <!-- 耳朵 -->
+        <path d="M-5,-10 L-8,-20 L-2,-10 M5,-10 L8,-20 L2,-10"/>
+        <!-- 尾巴 -->
+        <circle cx="12" cy="8" r="4"/>
+      </g>
+      <!-- 桂树 -->
+      <g transform="translate(15,0)" stroke="#4A4A4A" fill="none">
+        <path d="M0,0 C5,-10 0,-20 -5,-15"/>
+        <path d="M0,0 C-5,-10 0,-20 5,-15"/>
+      </g>
+    </g>
+    
+    <!-- 云雾 -->
+    <g filter="url(#cloud-flow)" opacity="0.6">
+      <path d="M-100,40 Q-50,20 0,40 Q50,60 100,40" 
+            stroke="#E6E6FA" 
+            stroke-width="2" 
+            fill="none">
+        <animate attributeName="d"
+                 values="M-100,40 Q-50,20 0,40 Q50,60 100,40;
+                        M-100,40 Q-50,60 0,40 Q50,20 100,40;
+                        M-100,40 Q-50,20 0,40 Q50,60 100,40"
+                 dur="10s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+    
+    <!-- 月饼 -->
+    <g transform="translate(-60,60)">
+      <circle cx="0" cy="0" r="15" 
+              fill="#DEB887"/>
+      <path d="M-5,-5 L5,5 M-5,5 L5,-5" 
+            stroke="#8B4513" 
+            stroke-width="1"/>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <g font-family="KingHwa_OldSong, serif" fill="#FFE4B5" text-anchor="middle">
+    <text x="150" y="320" 
+          font-size="24" 
+          letter-spacing="4">
+      月圆人团圆
+    </text>
+    <text x="150" y="355" 
+          font-size="24" 
+          letter-spacing="4">
+      花好月更明
+    </text>
+  </g>
+</svg> 

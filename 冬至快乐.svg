@@ -1,0 +1,145 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFE4E1"/>
+      <stop offset="50%" style="stop-color:#FFF0F5"/>
+      <stop offset="100%" style="stop-color:#FFF5EE"/>
+    </linearGradient>
+    
+    <!-- 蒸汽效果 -->
+    <filter id="steam" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2">
+        <animate attributeName="baseFrequency"
+                 values="0.01;0.015;0.01"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5"/>
+    </filter>
+    
+    <!-- 灯笼光晕 -->
+    <radialGradient id="lantern-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FF6347;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#FF6347;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#bg-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="100" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#8B4513" 
+        text-anchor="middle"
+        letter-spacing="4">
+    冬至快乐
+  </text>
+  
+  <!-- 主场景 -->
+  <g transform="translate(150,200)">
+    <!-- 汤圆碗 -->
+    <g>
+      <!-- 碗 -->
+      <path d="M-60,20 A60,20 0 0,0 60,20" 
+            fill="#FFFFFF" 
+            stroke="#DEB887" 
+            stroke-width="2"/>
+      <path d="M-60,20 L-50,-20 A50,15 0 0,1 50,-20 L60,20" 
+            fill="#FFFFFF" 
+            stroke="#DEB887" 
+            stroke-width="2"/>
+      
+      <!-- 汤汁 -->
+      <path d="M-45,0 A45,10 0 0,0 45,0" 
+            fill="#FFE4E1" 
+            opacity="0.8"/>
+      
+      <!-- 汤圆 -->
+      <g fill="#FFFFFF" stroke="#DEB887" stroke-width="1">
+        <circle cx="-20" cy="0" r="12">
+          <animate attributeName="cy"
+                   values="0;-2;0"
+                   dur="2s"
+                   repeatCount="indefinite"/>
+        </circle>
+        <circle cx="10" cy="-5" r="10">
+          <animate attributeName="cy"
+                   values="-5;-7;-5"
+                   dur="2.5s"
+                   repeatCount="indefinite"/>
+        </circle>
+        <circle cx="30" cy="2" r="8">
+          <animate attributeName="cy"
+                   values="2;0;2"
+                   dur="1.8s"
+                   repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </g>
+    
+    <!-- 蒸汽 -->
+    <g filter="url(#steam)" opacity="0.6">
+      <path d="M-30,-30 Q-20,-40 -10,-30" 
+            stroke="#FFFFFF" 
+            stroke-width="2" 
+            fill="none">
+        <animate attributeName="d"
+                 values="M-30,-30 Q-20,-40 -10,-30;M-30,-30 Q-20,-35 -10,-30;M-30,-30 Q-20,-40 -10,-30"
+                 dur="2s"
+                 repeatCount="indefinite"/>
+      </path>
+      <path d="M0,-35 Q10,-45 20,-35" 
+            stroke="#FFFFFF" 
+            stroke-width="2" 
+            fill="none">
+        <animate attributeName="d"
+                 values="M0,-35 Q10,-45 20,-35;M0,-35 Q10,-40 20,-35;M0,-35 Q10,-45 20,-35"
+                 dur="2.5s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+    
+    <!-- 灯笼装饰 -->
+    <g transform="translate(-80,-40)">
+      <circle cx="0" cy="0" r="15" fill="url(#lantern-glow)"/>
+      <circle cx="0" cy="0" r="10" fill="#FF4500"/>
+      <path d="M0,-10 L0,-20" stroke="#8B4513" stroke-width="2"/>
+      <text x="0" y="5" 
+            font-family="KingHwa_OldSong, serif" 
+            font-size="12" 
+            fill="#FFFFFF" 
+            text-anchor="middle">
+        冬
+      </text>
+    </g>
+    
+    <g transform="translate(80,-40)">
+      <circle cx="0" cy="0" r="15" fill="url(#lantern-glow)"/>
+      <circle cx="0" cy="0" r="10" fill="#FF4500"/>
+      <path d="M0,-10 L0,-20" stroke="#8B4513" stroke-width="2"/>
+      <text x="0" y="5" 
+            font-family="KingHwa_OldSong, serif" 
+            font-size="12" 
+            fill="#FFFFFF" 
+            text-anchor="middle">
+        至
+      </text>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <g font-family="KingHwa_OldSong, serif" fill="#8B4513" text-anchor="middle">
+    <text x="150" y="320" 
+          font-size="24" 
+          letter-spacing="4">
+      温暖团圆
+    </text>
+    <text x="150" y="355" 
+          font-size="24" 
+          letter-spacing="4">
+      幸福安康
+    </text>
+  </g>
+</svg> 

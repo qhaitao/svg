@@ -1,0 +1,127 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6347"/>
+      <stop offset="50%" style="stop-color:#FFA500"/>
+      <stop offset="100%" style="stop-color:#FFD700"/>
+    </linearGradient>
+    
+    <!-- 太阳光晕效果 -->
+    <filter id="sun-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
+      <feColorMatrix type="saturate" values="1.5"/>
+    </filter>
+    
+    <!-- 水波纹效果 -->
+    <filter id="water-ripple" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="3">
+        <animate attributeName="baseFrequency"
+                 values="0.008;0.012;0.008"
+                 dur="8s"
+                 repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="15"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#sky-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="100" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#8B4513" 
+        text-anchor="middle"
+        letter-spacing="4">
+    黄河落日
+  </text>
+  
+  <!-- 主场景 -->
+  <g transform="translate(150,200)">
+    <!-- 落日 -->
+    <g transform="translate(0,-60)">
+      <circle cx="0" cy="0" r="50" 
+              fill="#FF4500" 
+              filter="url(#sun-glow)">
+        <animate attributeName="opacity"
+                 values="0.9;1;0.9"
+                 dur="5s"
+                 repeatCount="indefinite"/>
+      </circle>
+      <!-- 光芒 -->
+      <g opacity="0.7">
+        <path d="M-80,0 L80,0 M0,-80 L0,80 M-60,-60 L60,60 M-60,60 L60,-60" 
+              stroke="#FF4500" 
+              stroke-width="4">
+          <animate attributeName="stroke-width"
+                   values="4;5;4"
+                   dur="4s"
+                   repeatCount="indefinite"/>
+        </path>
+      </g>
+    </g>
+    
+    <!-- 河水 -->
+    <g filter="url(#water-ripple)">
+      <!-- 主河道 -->
+      <path d="M-150,80 Q-75,60 0,80 Q75,100 150,80" 
+            fill="#FFD700" 
+            opacity="0.8"/>
+      <!-- 阳光倒影 -->
+      <path d="M-40,80 L40,80 L0,-60" 
+            fill="#FF4500" 
+            opacity="0.5"/>
+      <!-- 波纹 -->
+      <path d="M-120,70 Q-60,50 0,70 Q60,90 120,70" 
+            stroke="#FFA500" 
+            stroke-width="2" 
+            fill="none" 
+            opacity="0.4">
+        <animate attributeName="d"
+                 values="M-120,70 Q-60,50 0,70 Q60,90 120,70;
+                        M-120,70 Q-60,90 0,70 Q60,50 120,70;
+                        M-120,70 Q-60,50 0,70 Q60,90 120,70"
+                 dur="6s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+    
+    <!-- 远山 -->
+    <g fill="#8B4513" opacity="0.9">
+      <path d="M-150,60 L-100,20 L-50,40 L0,10 L50,30 L100,0 L150,50"/>
+    </g>
+    
+    <!-- 芦苇丛 -->
+    <g transform="translate(-120,40)" opacity="0.7">
+      <g stroke="#8B4513" fill="none">
+        <path d="M0,0 Q10,-30 20,-40">
+          <animate attributeName="d"
+                   values="M0,0 Q10,-30 20,-40;M0,0 Q15,-25 20,-40;M0,0 Q10,-30 20,-40"
+                   dur="4s"
+                   repeatCount="indefinite"/>
+        </path>
+        <path d="M10,0 Q20,-25 30,-35">
+          <animate attributeName="d"
+                   values="M10,0 Q20,-25 30,-35;M10,0 Q25,-20 30,-35;M10,0 Q20,-25 30,-35"
+                   dur="3s"
+                   repeatCount="indefinite"/>
+        </path>
+      </g>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <g font-family="KingHwa_OldSong, serif" fill="#8B4513" text-anchor="middle">
+    <text x="150" y="320" 
+          font-size="24" 
+          letter-spacing="4">
+      落日沉辉
+    </text>
+    <text x="150" y="355" 
+          font-size="24" 
+          letter-spacing="4">
+      大河奔流
+    </text>
+  </g>
+</svg> 
