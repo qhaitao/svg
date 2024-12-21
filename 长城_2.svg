@@ -1,0 +1,113 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变和滤镜 -->
+  <defs>
+    <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A4A4A"/>
+      <stop offset="60%" style="stop-color:#696969"/>
+      <stop offset="100%" style="stop-color:#2F4F4F"/>
+    </linearGradient>
+    
+    <!-- 火光效果 -->
+    <radialGradient id="fire-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FF4500"/>
+      <stop offset="100%" style="stop-color:#FF4500" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- 烟雾效果 -->
+    <filter id="smoke">
+      <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="3"/>
+      <feDisplacementMap in="SourceGraphic" scale="10"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#sky-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="80" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#CD853F" 
+        text-anchor="middle"
+        letter-spacing="8">
+    长城
+  </text>
+  
+  <!-- 烽火台场景 -->
+  <g transform="translate(150,200)">
+    <!-- 远山 -->
+    <path d="M-150,-100 Q-100,-130 -50,-100 Q0,-140 50,-100 Q100,-130 150,-100" 
+          fill="#2F4F4F" 
+          opacity="0.5"/>
+    <path d="M-150,-80 Q-75,-110 0,-80 Q75,-110 150,-80" 
+          fill="#2F4F4F" 
+          opacity="0.6"/>
+    
+    <!-- 烽火台主体 -->
+    <g>
+      <!-- 台基 -->
+      <path d="M-40,0 L40,0 L30,40 L-30,40 Z" 
+            fill="#CD853F"/>
+      
+      <!-- 台身 -->
+      <rect x="-30" y="-40" width="60" height="40" 
+            fill="#CD853F"/>
+      
+      <!-- 台顶 -->
+      <path d="M-35,-40 L35,-40 L25,-60 L-25,-60 Z" 
+            fill="#CD853F"/>
+      
+      <!-- 烽火 -->
+      <g transform="translate(0,-65)">
+        <!-- 火焰 -->
+        <path d="M-10,0 Q0,-20 10,0" 
+              fill="url(#fire-glow)" 
+              opacity="0.8">
+          <animate attributeName="d"
+                   values="M-10,0 Q0,-20 10,0;
+                          M-10,0 Q0,-25 10,0;
+                          M-10,0 Q0,-20 10,0"
+                   dur="0.5s"
+                   repeatCount="indefinite"/>
+        </path>
+        
+        <!-- 烟雾 -->
+        <path d="M-5,-10 Q0,-30 5,-10" 
+              stroke="#696969"
+              stroke-width="2"
+              fill="none"
+              opacity="0.4"
+              filter="url(#smoke)">
+          <animate attributeName="d"
+                   values="M-5,-10 Q0,-30 5,-10;
+                          M-5,-10 Q0,-40 5,-10;
+                          M-5,-10 Q0,-30 5,-10"
+                   dur="3s"
+                   repeatCount="indefinite"/>
+        </path>
+      </g>
+    </g>
+    
+    <!-- 守卫 -->
+    <g transform="translate(-20,-30)">
+      <circle cx="0" cy="0" r="5" fill="#CD853F"/>
+      <path d="M0,5 L0,15 M-5,10 L5,10" 
+            stroke="#CD853F"
+            stroke-width="2"/>
+      <!-- 长矛 -->
+      <line x1="5" y1="0" x2="20" y2="-10" 
+            stroke="#CD853F"
+            stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <text x="150" y="340" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="24" 
+        fill="#CD853F" 
+        text-anchor="middle"
+        letter-spacing="2">
+    烽火连天，警守四方
+  </text>
+</svg> 

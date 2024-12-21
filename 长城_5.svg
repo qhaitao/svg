@@ -1,0 +1,138 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变和滤镜 -->
+  <defs>
+    <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB"/>
+      <stop offset="60%" style="stop-color:#E6E6FA"/>
+      <stop offset="100%" style="stop-color:#98FB98"/>
+    </linearGradient>
+    
+    <!-- 花瓣飘落效果 -->
+    <filter id="petal-blur">
+      <feGaussianBlur stdDeviation="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#sky-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="80" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#DEB887" 
+        text-anchor="middle"
+        letter-spacing="8">
+    长城
+  </text>
+  
+  <!-- 春日长城场景 -->
+  <g transform="translate(150,200)">
+    <!-- 长城主体 -->
+    <g>
+      <path d="M-150,-40 Q-75,-60 0,-40 Q75,-60 150,-40"
+            fill="none"
+            stroke="#DEB887"
+            stroke-width="8"/>
+      
+      <!-- 城墙装饰 -->
+      <g stroke="#DEB887" stroke-width="2">
+        <line x1="-120" y1="-40" x2="-120" y2="-60"/>
+        <line x1="-60" y1="-50" x2="-60" y2="-70"/>
+        <line x1="0" y1="-40" x2="0" y2="-60"/>
+        <line x1="60" y1="-50" x2="60" y2="-70"/>
+        <line x1="120" y1="-40" x2="120" y2="-60"/>
+      </g>
+    </g>
+    
+    <!-- 桃花树 -->
+    <g>
+      <!-- 左侧桃树 -->
+      <path d="M-100,-20 C-90,-40 -70,-40 -60,-20" 
+            fill="none"
+            stroke="#8B4513"
+            stroke-width="2"/>
+      <g fill="#FFB7C5">
+        <circle cx="-95" cy="-35" r="3">
+          <animate attributeName="opacity"
+                   values="1;0.8;1"
+                   dur="3s"
+                   repeatCount="indefinite"/>
+        </circle>
+        <circle cx="-85" cy="-38" r="3"/>
+        <circle cx="-75" cy="-35" r="3">
+          <animate attributeName="opacity"
+                   values="0.8;1;0.8"
+                   dur="3s"
+                   repeatCount="indefinite"/>
+        </circle>
+        <circle cx="-65" cy="-30" r="3"/>
+      </g>
+      
+      <!-- 右侧桃树 -->
+      <path d="M60,-20 C70,-40 90,-40 100,-20" 
+            fill="none"
+            stroke="#8B4513"
+            stroke-width="2"/>
+      <g fill="#FFB7C5">
+        <circle cx="65" cy="-35" r="3">
+          <animate attributeName="opacity"
+                   values="0.8;1;0.8"
+                   dur="4s"
+                   repeatCount="indefinite"/>
+        </circle>
+        <circle cx="75" cy="-38" r="3"/>
+        <circle cx="85" cy="-35" r="3">
+          <animate attributeName="opacity"
+                   values="1;0.8;1"
+                   dur="4s"
+                   repeatCount="indefinite"/>
+        </circle>
+        <circle cx="95" cy="-30" r="3"/>
+      </g>
+    </g>
+    
+    <!-- 游人 -->
+    <g transform="translate(0,0)">
+      <circle cx="0" cy="-10" r="4" fill="#DEB887"/>
+      <path d="M0,-6 L0,4 M-4,0 L4,0 M-3,-4 L3,4" 
+            stroke="#DEB887"
+            stroke-width="2"
+            fill="none"/>
+    </g>
+    
+    <!-- 飘落的花瓣 -->
+    <g filter="url(#petal-blur)" fill="#FFB7C5" opacity="0.6">
+      <circle cx="-40" cy="-60" r="2">
+        <animate attributeName="cy"
+                 values="-60;0"
+                 dur="6s"
+                 repeatCount="indefinite"/>
+        <animate attributeName="cx"
+                 values="-40;-30"
+                 dur="6s"
+                 repeatCount="indefinite"/>
+      </circle>
+      <circle cx="20" cy="-40" r="2">
+        <animate attributeName="cy"
+                 values="-40;20"
+                 dur="5s"
+                 repeatCount="indefinite"/>
+        <animate attributeName="cx"
+                 values="20;30"
+                 dur="5s"
+                 repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <text x="150" y="340" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="24" 
+        fill="#DEB887" 
+        text-anchor="middle"
+        letter-spacing="2">
+    春光明媚，万物复苏
+  </text>
+</svg> 

@@ -1,0 +1,60 @@
+
+        <svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+            <!-- 定义渐变和滤镜 -->
+            <defs>
+                <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#FFD700"/>
+                    <stop offset="100%" style="stop-color:#4682B4"/>
+                </linearGradient>
+                <!-- 添加其他必要的滤镜和效果 -->
+            </defs>
+            
+            <!-- 背景 -->
+            <rect width="100%" height="100%" fill="url(#sky-gradient)"/>
+            
+            <!-- 主题词 -->
+            <text x="150" y="80" 
+                  font-family="KingHwa_OldSong, serif" 
+                  font-size="32" 
+                  fill="#8B4513" 
+                  text-anchor="middle"
+                  letter-spacing="8">
+                长城
+            </text>
+            
+            <!-- 场景元素 -->
+            
+        <g transform="translate(150,200)">
+            <!-- 太阳 -->
+            <circle cx="0" cy="-40" r="20" fill="#FFD700">
+                <animate attributeName="cy"
+                         values="-60;-40"
+                         dur="4s"
+                         fill="freeze"/>
+            </circle>
+            
+            <!-- 长城主体 -->
+            <path d="M-150,-20 Q-100,-40 -50,-20 Q0,-40 50,-20 Q100,-40 150,-20"
+                  fill="none"
+                  stroke="#8B4513"
+                  stroke-width="8"/>
+            
+            <!-- 烽火台 -->
+            <g transform="translate(0,-40)">
+                <rect x="-15" y="0" width="30" height="20" fill="#8B4513"/>
+                <path d="M-20,0 L0,-20 L20,0 Z" fill="#8B4513"/>
+            </g>
+        </g>
+        
+            
+            <!-- 副标题 -->
+            <text x="150" y="340" 
+                  font-family="KingHwa_OldSong, serif" 
+                  font-size="24" 
+                  fill="#8B4513" 
+                  text-anchor="middle"
+                  letter-spacing="2">
+                雄关漫道，气势磅礴
+            </text>
+        </svg>
+        

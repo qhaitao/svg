@@ -1,0 +1,127 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变和滤镜 -->
+  <defs>
+    <linearGradient id="dusk-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#B8860B"/>
+      <stop offset="40%" style="stop-color:#CD853F"/>
+      <stop offset="70%" style="stop-color:#8B4513"/>
+      <stop offset="100%" style="stop-color:#4A4A4A"/>
+    </linearGradient>
+    
+    <!-- 烽火效果 -->
+    <filter id="fire-blur">
+      <feGaussianBlur stdDeviation="1"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#dusk-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="80" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#DAA520" 
+        text-anchor="middle"
+        letter-spacing="8">
+    长城
+  </text>
+  
+  <!-- 战马烽火场景 -->
+  <g transform="translate(150,200)">
+    <!-- 长城主体 -->
+    <g>
+      <path d="M-150,-40 Q-75,-60 0,-40 Q75,-60 150,-40"
+            fill="none"
+            stroke="#8B4513"
+            stroke-width="8"/>
+      
+      <!-- 烽火台 -->
+      <g transform="translate(0,-60)">
+        <rect x="-20" y="-20" width="40" height="20" 
+              fill="#8B4513"/>
+        <path d="M-25,-20 L0,-40 L25,-20" 
+              fill="#8B4513"/>
+        
+        <!-- 烽火 -->
+        <g filter="url(#fire-blur)">
+          <path d="M-10,-40 Q0,-60 10,-40" 
+                fill="#FF4500"
+                opacity="0.8">
+            <animate attributeName="d"
+                     values="M-10,-40 Q0,-60 10,-40;
+                            M-10,-40 Q0,-65 10,-40;
+                            M-10,-40 Q0,-60 10,-40"
+                     dur="0.5s"
+                     repeatCount="indefinite"/>
+          </path>
+        </g>
+      </g>
+    </g>
+    
+    <!-- 战马 -->
+    <g transform="translate(-40,-20)">
+      <!-- 马身 -->
+      <path d="M0,0 Q10,-10 20,0" 
+            stroke="#8B4513"
+            stroke-width="4"
+            fill="none"/>
+      <!-- 马头 -->
+      <path d="M20,0 Q25,-5 20,-10" 
+            stroke="#8B4513"
+            stroke-width="3"
+            fill="none"/>
+      <!-- 马腿 -->
+      <path d="M5,0 L5,10 M15,0 L15,10" 
+            stroke="#8B4513"
+            stroke-width="2"/>
+      <!-- 骑士 -->
+      <circle cx="10" cy="-10" r="4" 
+              fill="#8B4513"/>
+    </g>
+    
+    <!-- 旌旗 -->
+    <g transform="translate(40,-40)">
+      <!-- 旗杆 -->
+      <line x1="0" y1="0" x2="0" y2="-40" 
+            stroke="#DAA520"
+            stroke-width="2"/>
+      <!-- 旗面 -->
+      <path d="M0,-35 Q10,-40 20,-35 Q10,-30 20,-25 Q10,-20 0,-25"
+            fill="#DAA520"
+            opacity="0.8">
+        <animate attributeName="d"
+                 values="M0,-35 Q10,-40 20,-35 Q10,-30 20,-25 Q10,-20 0,-25;
+                        M0,-35 Q15,-40 25,-35 Q15,-30 25,-25 Q15,-20 0,-25;
+                        M0,-35 Q10,-40 20,-35 Q10,-30 20,-25 Q10,-20 0,-25"
+                 dur="2s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+    
+    <!-- 烟云 -->
+    <g opacity="0.4">
+      <path d="M-10,-80 Q0,-90 10,-80" 
+            stroke="#A0522D"
+            stroke-width="2"
+            fill="none">
+        <animate attributeName="d"
+                 values="M-10,-80 Q0,-90 10,-80;
+                        M-10,-85 Q0,-95 10,-85;
+                        M-10,-80 Q0,-90 10,-80"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <text x="150" y="340" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="24" 
+        fill="#DAA520" 
+        text-anchor="middle"
+        letter-spacing="2">
+    烽火连天，战马嘶鸣
+  </text>
+</svg> 

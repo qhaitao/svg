@@ -1,0 +1,136 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变和滤镜 -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5DEB3"/>
+      <stop offset="50%" style="stop-color:#FFDEAD"/>
+      <stop offset="100%" style="stop-color:#F5DEB3"/>
+    </linearGradient>
+    
+    <!-- 树叶形状 -->
+    <path id="leaf" d="M0,0 Q2,-5 5,0 Q2,5 0,0" />
+    
+    <!-- 胡杨树纹理 -->
+    <pattern id="tree-texture" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="3" x2="6" y2="3" stroke="#8B4513" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#bg-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="80" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#8B4513" 
+        text-anchor="middle"
+        letter-spacing="8">
+    黄河
+  </text>
+  
+  <!-- 胡杨林场景 -->
+  <g transform="translate(150,200)">
+    <!-- 远处河流 -->
+    <path d="M-150,60 Q-75,55 0,60 Q75,65 150,60" 
+          fill="none"
+          stroke="#4682B4" 
+          stroke-width="2"
+          opacity="0.3"/>
+    
+    <!-- 胡杨树群 -->
+    <g>
+      <!-- 第一棵树 -->
+      <g transform="translate(-80,0) scale(0.8)">
+        <path d="M0,50 C-5,30 -10,0 0,-30 C10,0 5,30 0,50" 
+              fill="url(#tree-texture)" 
+              stroke="#8B4513" 
+              stroke-width="2"/>
+        <path d="M-20,-10 C-15,-20 -5,-25 0,-20 C5,-25 15,-20 20,-10" 
+              fill="#DAA520" 
+              opacity="0.9"/>
+        <path d="M-15,0 C-10,-10 -5,-15 0,-10 C5,-15 10,-10 15,0" 
+              fill="#DAA520" 
+              opacity="0.8"/>
+      </g>
+      
+      <!-- 第二棵树 -->
+      <g transform="translate(0,-20)">
+        <path d="M0,60 C-8,35 -15,0 0,-40 C15,0 8,35 0,60" 
+              fill="url(#tree-texture)" 
+              stroke="#8B4513" 
+              stroke-width="3"/>
+        <path d="M-30,-15 C-20,-30 -10,-35 0,-30 C10,-35 20,-30 30,-15" 
+              fill="#DAA520" 
+              opacity="0.9"/>
+        <path d="M-25,5 C-15,-5 -5,-10 0,-5 C5,-10 15,-5 25,5" 
+              fill="#DAA520" 
+              opacity="0.8"/>
+      </g>
+      
+      <!-- 第三棵树 -->
+      <g transform="translate(60,10) scale(0.9)">
+        <path d="M0,45 C-6,25 -12,0 0,-25 C12,0 6,25 0,45" 
+              fill="url(#tree-texture)" 
+              stroke="#8B4513" 
+              stroke-width="2"/>
+        <path d="M-25,-8 C-15,-20 -8,-25 0,-20 C8,-25 15,-20 25,-8" 
+              fill="#DAA520" 
+              opacity="0.9"/>
+        <path d="M-20,2 C-12,-8 -5,-12 0,-8 C5,-12 12,-8 20,2" 
+              fill="#DAA520" 
+              opacity="0.8"/>
+      </g>
+    </g>
+    
+    <!-- 飘落的树叶 -->
+    <g>
+      <use href="#leaf" fill="#CD853F">
+        <animateMotion
+          path="M0,-50 C20,0 -20,50 0,100"
+          dur="4s"
+          repeatCount="indefinite"/>
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0;360"
+          dur="4s"
+          repeatCount="indefinite"/>
+      </use>
+      <use href="#leaf" fill="#DAA520">
+        <animateMotion
+          path="M50,-30 C0,20 30,70 -20,100"
+          dur="5s"
+          repeatCount="indefinite"/>
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0;360"
+          dur="5s"
+          repeatCount="indefinite"/>
+      </use>
+      <use href="#leaf" fill="#CD853F">
+        <animateMotion
+          path="M-30,-40 C20,20 -10,60 20,100"
+          dur="6s"
+          repeatCount="indefinite"/>
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0;360"
+          dur="6s"
+          repeatCount="indefinite"/>
+      </use>
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <text x="150" y="340" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="24" 
+        fill="#8B4513" 
+        text-anchor="middle"
+        letter-spacing="2">
+    胡杨傲立，生命不息
+  </text>
+</svg> 

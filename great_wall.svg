@@ -1,0 +1,119 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变和纹理 -->
+  <defs>
+    <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8EEF7"/>
+      <stop offset="100%" style="stop-color:#F9FCFF"/>
+    </linearGradient>
+    
+    <!-- 山峦纹理 -->
+    <pattern id="mountain-texture" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M0,0 L4,4 M4,0 L0,4" 
+            stroke="#4A5C51" 
+            stroke-width="0.5" 
+            opacity="0.1"/>
+    </pattern>
+    
+    <!-- 砖石纹理 -->
+    <pattern id="wall-texture" x="0" y="0" width="8" height="4" patternUnits="userSpaceOnUse">
+      <rect width="7" height="3" 
+            fill="#8C8C88" 
+            stroke="#7A7A76" 
+            stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#sky-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="100" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#4A5C51" 
+        text-anchor="middle"
+        letter-spacing="4">
+    万里长城
+  </text>
+  
+  <!-- 山脉背景 -->
+  <g transform="translate(150,220)">
+    <!-- 远山 -->
+    <path d="M-150,80 L-100,20 L-50,60 L0,0 L50,40 L100,10 L150,70 L150,80 Z" 
+          fill="url(#mountain-texture)" 
+          opacity="0.3"/>
+    <!-- 近山 -->
+    <path d="M-150,80 L-80,40 L-20,70 L40,30 L100,60 L150,80 Z" 
+          fill="url(#mountain-texture)" 
+          opacity="0.4"/>
+  </g>
+  
+  <!-- 长城主体 -->
+  <g transform="translate(150,200)">
+    <!-- 城墙主体 -->
+    <path d="M-120,0 Q-60,-20 0,0 Q60,20 120,0" 
+          stroke="#8C8C88" 
+          stroke-width="15" 
+          fill="none"/>
+    
+    <!-- 城墙纹理 -->
+    <path d="M-120,0 Q-60,-20 0,0 Q60,20 120,0" 
+          stroke="url(#wall-texture)" 
+          stroke-width="12" 
+          fill="none"/>
+    
+    <!-- 烽火台 -->
+    <g>
+      <!-- 左烽火台 -->
+      <g transform="translate(-80,-10)">
+        <rect x="-8" y="-15" width="16" height="15" 
+              fill="#8C8C88"/>
+        <path d="M-10,-15 L10,-15 L0,-25 Z" 
+              fill="#8C8C88"/>
+      </g>
+      <!-- 中烽火台 -->
+      <g transform="translate(0,-12)">
+        <rect x="-8" y="-15" width="16" height="15" 
+              fill="#8C8C88"/>
+        <path d="M-10,-15 L10,-15 L0,-25 Z" 
+              fill="#8C8C88"/>
+      </g>
+      <!-- 右烽火台 -->
+      <g transform="translate(80,-8)">
+        <rect x="-8" y="-15" width="16" height="15" 
+              fill="#8C8C88"/>
+        <path d="M-10,-15 L10,-15 L0,-25 Z" 
+              fill="#8C8C88"/>
+      </g>
+    </g>
+    
+    <!-- 云雾效果 -->
+    <g opacity="0.2">
+      <path d="M-100,20 Q-50,10 0,20 Q50,30 100,20" 
+            stroke="#D4B886" 
+            stroke-width="2" 
+            fill="none">
+        <animate attributeName="d"
+                 values="M-100,20 Q-50,10 0,20 Q50,30 100,20;
+                        M-100,20 Q-50,30 0,20 Q50,10 100,20;
+                        M-100,20 Q-50,10 0,20 Q50,30 100,20"
+                 dur="10s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- 文字（分两行） -->
+  <g font-family="KingHwa_OldSong, serif" fill="#4A5C51" text-anchor="middle">
+    <text x="150" y="320" 
+          font-size="24" 
+          letter-spacing="4">
+      雄关漫道真如铁
+    </text>
+    <text x="150" y="355" 
+          font-size="24" 
+          letter-spacing="4">
+      而今迈步从头越
+    </text>
+  </g>
+</svg> 

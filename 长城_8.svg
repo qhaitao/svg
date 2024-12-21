@@ -1,0 +1,108 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变和滤镜 -->
+  <defs>
+    <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4682B4"/>
+      <stop offset="60%" style="stop-color:#778899"/>
+      <stop offset="100%" style="stop-color:#696969"/>
+    </linearGradient>
+    
+    <!-- 旗帜飘动效果 -->
+    <filter id="flag-wave">
+      <feGaussianBlur stdDeviation="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#sky-gradient)"/>
+  
+  <!-- 主题词 -->
+  <text x="150" y="80" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="32" 
+        fill="#8B4513" 
+        text-anchor="middle"
+        letter-spacing="8">
+    长城
+  </text>
+  
+  <!-- 关隘场景 -->
+  <g transform="translate(150,200)">
+    <!-- 城墙主体 -->
+    <g>
+      <!-- 左侧城墙 -->
+      <path d="M-150,-40 L-50,-40"
+            stroke="#8B4513"
+            stroke-width="8"/>
+      <!-- 右侧城墙 -->
+      <path d="M50,-40 L150,-40"
+            stroke="#8B4513"
+            stroke-width="8"/>
+    </g>
+    
+    <!-- 城门主体 -->
+    <g>
+      <!-- 门楼 -->
+      <rect x="-40" y="-100" width="80" height="60" 
+            fill="#8B4513"/>
+      <!-- 门楼顶 -->
+      <path d="M-45,-100 L0,-130 L45,-100" 
+            fill="#8B4513"/>
+      <!-- 门洞 -->
+      <path d="M-30,-40 L-30,-80 A30,30 0 0,1 30,-80 L30,-40" 
+            fill="#4A4A4A"/>
+      <!-- 门窗 -->
+      <rect x="-20" y="-90" width="10" height="15" 
+            fill="#4A4A4A"/>
+      <rect x="10" y="-90" width="10" height="15" 
+            fill="#4A4A4A"/>
+    </g>
+    
+    <!-- 卫士 -->
+    <g transform="translate(-20,-45)">
+      <circle cx="0" cy="0" r="5" fill="#8B4513"/>
+      <path d="M0,5 L0,15 M-5,10 L5,10" 
+            stroke="#8B4513"
+            stroke-width="2"/>
+      <!-- 长矛 -->
+      <line x1="5" y1="0" x2="20" y2="-10" 
+            stroke="#8B4513"
+            stroke-width="2"/>
+    </g>
+    
+    <!-- 旗帜 -->
+    <g transform="translate(0,-130)">
+      <!-- 旗杆 -->
+      <line x1="0" y1="0" x2="0" y2="-40" 
+            stroke="#8B4513"
+            stroke-width="2"/>
+      <!-- 旗面 -->
+      <path d="M0,-35 Q10,-40 20,-35 Q10,-30 20,-25 Q10,-20 0,-25"
+            fill="#CD853F"
+            opacity="0.8">
+        <animate attributeName="d"
+                 values="M0,-35 Q10,-40 20,-35 Q10,-30 20,-25 Q10,-20 0,-25;
+                        M0,-35 Q15,-40 25,-35 Q15,-30 25,-25 Q15,-20 0,-25;
+                        M0,-35 Q10,-40 20,-35 Q10,-30 20,-25 Q10,-20 0,-25"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+    
+    <!-- 装饰纹样 -->
+    <g stroke="#CD853F" stroke-width="1">
+      <path d="M-35,-110 L-25,-110 M-30,-115 L-30,-105" />
+      <path d="M25,-110 L35,-110 M30,-115 L30,-105" />
+    </g>
+  </g>
+  
+  <!-- 文字 -->
+  <text x="150" y="340" 
+        font-family="KingHwa_OldSong, serif" 
+        font-size="24" 
+        fill="#8B4513" 
+        text-anchor="middle"
+        letter-spacing="2">
+    雄关巍峨，固若金汤
+  </text>
+</svg> 
